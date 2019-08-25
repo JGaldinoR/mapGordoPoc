@@ -14,7 +14,7 @@ export class UserService {
   ) { }
 
   getUser() {
-    //Pull request test
+    //This is a development change
     return this.http.get<any>(this.mockDataUrl)
     .pipe(
       map((array)=> {

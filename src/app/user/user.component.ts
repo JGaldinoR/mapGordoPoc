@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, AfterViewInit } from '@angular/core';
 import { UserService } from './user.service';
-
+//Gaby
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -22,6 +22,7 @@ export class UserComponent implements OnInit, OnChanges, AfterViewInit {
   }
 
   getUser() {
+    //Another development change
     this.userService.getUser().subscribe(data => {
       console.log('Mapped Data: ', data);
       this.tableData = data;
