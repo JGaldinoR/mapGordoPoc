@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, AfterViewInit } from '@angular/core';
 import { UserService } from './user.service';
-//IF YOU GEY A CONFLICT IT IS BECAUSE YOU DONT KNOW GIT
+//Gaby
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
