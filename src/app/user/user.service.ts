@@ -14,7 +14,11 @@ export class UserService {
   ) { }
 
   getUser() {
+<<<<<<< HEAD
     //Git
+=======
+    //Master test
+>>>>>>> master
     return this.http.get<any>(this.mockDataUrl)
     .pipe(
       map((array)=> {
