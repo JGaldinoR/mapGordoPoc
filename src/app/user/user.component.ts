@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnChanges, AfterViewInit, SimpleChanges } from '@angular/core';
 import { UserService } from './user.service';
 //Gaby
 @Component({
@@ -8,25 +8,65 @@ import { UserService } from './user.service';
 })
 export class UserComponent implements OnInit, OnChanges, AfterViewInit {
   tableData :any;
+  exampleData :any;
   constructor(
     private userService: UserService,
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+   //this.getStarWarsUser();
+   //this.getPlanet();
+   this.getMergeMap();
+  }
 
-  ngOnChanges() {}
+  ngOnChanges(changes :SimpleChanges) {
+    console.log('Changes: ', changes);
+  }
 
   ngAfterViewInit() {
-    console.log('Hello Gordo');
-    this.getUser();
+    
+    //console.log('NG AFTER VIEW INIT', this.tableData);
+    //this.getUser();
   }
 
-  getUser() {
-    //Another development change
-    this.userService.getUser().subscribe(data => {
-      console.log('Mapped Data: ', data);
-      this.tableData = data;
+  getMergeMap() {
+    this.userService.getMergeMap().subscribe(data => {
+      console.log('Subscribe: ', data);
+      this.exampleData = data;
+      
+    })
+  }
+
+  getStarWarsUser() {
+    this.userService.getStarWarsPerson().subscribe(data => {
+      console.log('Subscribe: ', data);
+      this.exampleData = data;
+      console.log('FINISH');
+      
     });
   }
+
+  getPlanet() {
+    this.userService.getPlanet().subscribe(data => {
+      console.log('Subscribe: ', data);
+      this.exampleData = data;
+      
+    })
+  }
+
+  showData() {
+    console.log('DATA: ', this.exampleData);
+  }
+  // getAllUsers() {
+  //   this.tableData = this.userService.getAllUsers().subscribe()
+  // }
+
+  // getUser() {
+  //   //Another development change
+  //   this.userService.getUser().subscribe(data => {
+  //     console.log('Mapped Data: ', data);
+  //     this.tableData = data;
+  //   });
+  // }
 
 }
