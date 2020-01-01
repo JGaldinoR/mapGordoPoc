@@ -39,7 +39,7 @@ export class UserService {
       mergeMap(values => {
         console.log('Values: ', values);
         
-        let apiArray = values.films.map((eachValue) => {
+        let apiArray:any = values.films.map((eachValue) => {
           console.log('EachValue: ', eachValue);
           
           return this.http.get(eachValue)
