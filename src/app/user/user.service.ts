@@ -34,12 +34,13 @@ export class UserService {
 
   getMergeMap() {
     let observableData: Observable<any>;
-    return this.http.get(this.startWarsUrl + 'people/1').pipe(
+    return this.http.get<any>(this.startWarsUrl + 'people/1').pipe(
       // first map all the observales make an array for API calls
       mergeMap(values => {
         console.log('Values: ', values);
         
-        let apiArray:any = values.films.map((eachValue) => {
+        let apiArray: any = values.films.map((eachValue) => {
+          //Here you iterate to create the HLS array of http requests
           console.log('EachValue: ', eachValue);
           
           return this.http.get(eachValue)
